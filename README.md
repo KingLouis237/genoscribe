@@ -12,6 +12,16 @@ GenoScribe is a local, evidence-first review workbench for genomics papers and t
 
 It is built to help scientists inspect evidence, not accept fluent summaries. The system retrieves passages, preserves provenance, surfaces structured evidence, and assigns explicit audit status before rendering user-facing output.
 
+## Why this exists
+
+A lot of AI tools can generate fluent summaries. That is not the hard part.
+
+The hard part is knowing whether a summary is actually grounded in the paper, whether the retrieved passages are on-target, whether metrics came from the right document, and whether unsupported topics were clearly separated from supported claims.
+
+GenoScribe is my attempt to build that trustworthy, transparent and interpretable layer first.
+
+The project is especially shaped by bioinformatics and genomics workflows, where small errors in provenance, labels, variants, cohorts, or benchmark interpretation can completely change the meaning of a result.
+
 ## Product hierarchy
 
 **Core / flagship: Paper mode**  
