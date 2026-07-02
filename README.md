@@ -45,7 +45,7 @@ Local curated-corpus validation:
 - Paper-primary probe corpus and monitoring protocol are in place.
 - Full curated-corpus validation requires locally synced papers and generated indexes, which are intentionally not committed to Git.
 
-[The synthetic demo validates the public workflow only. It is not evidence of scientific or clinical performance].
+`The synthetic demo validates the public workflow only. It is not evidence of scientific or clinical performance`.
 
 - Remaining known weaknesses are documented in [docs/KNOWN_LIMITATIONS.md](docs/KNOWN_LIMITATIONS.md).
 
