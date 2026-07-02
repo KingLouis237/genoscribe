@@ -191,6 +191,17 @@ uv run streamlit run scripts/review_gui_streamlit.py
 
 The app is a developer/debugging interface. It exposes ranked candidates, passage text, chunk metadata, filter decisions, extracted metrics, evidence bundles, structured answers, audit status, timing diagnostics, and validation/probe reports.
 
+## Try the synthetic public demo
+
+This demo does not use real papers, patient data, clinical records, or copyrighted PDFs.
+
+```bash
+uv sync
+uv run pytest
+uv run python scripts/demo_build_sample_corpus.py
+uv run python scripts/paper_validation_harness.py --matrix docs/examples/demo_validation_matrix.json --manifest docs/examples/demo_manifest.json --top-k 4
+uv run streamlit run scripts/review_gui_streamlit.py
+
 ## Quickstart demo
 
 See [docs/QUICKSTART_DEMO.md](docs/QUICKSTART_DEMO.md) for a reproducible local demo path.
