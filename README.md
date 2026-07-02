@@ -32,9 +32,21 @@ A research-only prototype for variant-literature evidence assembly. It remains u
 
 ## Current validation checkpoint
 
-- Fixed paper-mode benchmark: **21/25 = 84%**.
-- Full test suite at last release-prep check: **100 passed, 1 skipped**.
+Public clean-checkout validation:
+
+- `uv sync` works from a fresh export.
+- `uv run pytest`: 107 passed, 1 skipped.
+- Synthetic public demo corpus builds from a clean checkout.
+- Synthetic demo validation: 5/5 auto-pass.
+
+Local curated-corpus validation:
+
+- Fixed paper-mode benchmark: 21/25 = 84%.
 - Paper-primary probe corpus and monitoring protocol are in place.
+- Full curated-corpus validation requires locally synced papers and generated indexes, which are intentionally not committed to Git.
+
+The synthetic demo validates the public workflow only. It is not evidence of scientific or clinical performance.
+
 - Remaining known weaknesses are documented in [docs/KNOWN_LIMITATIONS.md](docs/KNOWN_LIMITATIONS.md).
 
 The current state-of-project assessment is in [docs/GENOSCRIBE_STATE_OF_PROJECT_2026-05.md](docs/GENOSCRIBE_STATE_OF_PROJECT_2026-05.md).
