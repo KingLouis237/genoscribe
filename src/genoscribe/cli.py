@@ -1,0 +1,6 @@
+"""Command-line interface for GenoScribe."""
+
+from .app import main
+
+if __name__ == "__main__":
+    main()

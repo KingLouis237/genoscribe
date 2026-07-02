@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "description": "Paper-primary corpus probes for post-benchmark generalization checks. These queries are not part of the fixed validation harness.",
+  "documents": [
+    {
+      "slug": "rna_seq_best_practices_2016",
+      "queries": [
+        {
+          "id": "scoped_claim",
+          "task_type": "scoped_claim_query",
+          "query": "In the RNA-seq best practices paper, what are the main recommendations for experimental design and quality control?"
+        },
+        {
+          "id": "unsupported_topic",
+          "task_type": "unsupported_topic_query",
+          "query": "In this RNA-seq best practices paper, what CRISPR base-editing off-target rates are reported?"
+        },
+        {
+          "id": "limitations",
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations or unresolved issues does the RNA-seq best practices paper report for analysis pipelines?"
+        },
+        {
+          "id": "metrics_optional",
+          "task_type": "metric_query",
+          "query": "From the RNA-seq best practices paper, extract any explicitly reported benchmark or performance metrics."
+        }
+      ]
+    },
+    {
+      "slug": "gene_prediction_benchmark_2020",
+      "queries": [
+        {
+          "id": "scoped_claim",
+          "task_type": "scoped_claim_query",
+          "query": "In the ab initio gene prediction benchmark paper, what evidence is presented about method performance across organisms?"
+        },
+        {
+          "id": "unsupported_topic",
+          "task_type": "unsupported_topic_query",
+          "query": "In this gene prediction benchmark paper, what polygenic risk score calibration results are reported?"
+        },
+        {
+          "id": "limitations",
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations or caveats does the gene prediction benchmark paper report about cross-organism generalization?"
+        },
+        {
+          "id": "metrics_optional",
+          "task_type": "metric_query",
+          "query": "From the gene prediction benchmark paper, extract explicitly reported benchmark metrics and model-system labels."
+        }
+      ]
+    },
+    {
+      "slug": "genomic_consortia_data_access_2024",
+      "queries": [
+        {
+          "id": "scoped_claim",
+          "task_type": "scoped_claim_query",
+          "query": "In the data access arrangements in genomic research consortia paper, what core findings are reported about governance models?"
+        },
+        {
+          "id": "unsupported_topic",
+          "task_type": "unsupported_topic_query",
+          "query": "In this genomic consortia data access paper, what BUSCO assembly completeness scores are reported?"
+        },
+        {
+          "id": "limitations",
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations or tensions does the genomic consortia data access paper report regarding equity and access?"
+        },
+        {
+          "id": "metrics_optional",
+          "task_type": "metric_query",
+          "query": "From the genomic consortia data access paper, extract any explicitly reported quantitative metrics or counts."
+        }
+      ]
+    },
+    {
+      "slug": "npj_genomicmed_data_sharing_2017",
+      "queries": [
+        {
+          "id": "scoped_claim",
+          "task_type": "scoped_claim_query",
+          "query": "In the genomic data sharing collaboration outsourcing perspective paper, what core governance and security recommendations are reported?"
+        },
+        {
+          "id": "unsupported_topic",
+          "task_type": "unsupported_topic_query",
+          "query": "In this genomic data sharing perspective paper, what BUSCO completeness scores are reported?"
+        },
+        {
+          "id": "limitations",
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations or unresolved risks does the genomic data sharing collaboration and outsourcing paper report?"
+        }
+      ]
+    },
+    {
+      "slug": "bmc_genomics_benchtop_wgs_2025",
+      "queries": [
+        {
+          "id": "scoped_claim",
+          "task_type": "scoped_claim_query",
+          "query": "In the benchtop whole genome sequencing paper, what evidence is reported about production-scale feasibility and sequencing quality?"
+        },
+        {
+          "id": "unsupported_topic",
+          "task_type": "unsupported_topic_query",
+          "query": "In this benchtop WGS paper, what CRISPR base-editing off-target rates are reported?"
+        },
+        {
+          "id": "limitations",
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations or caveats does the benchtop whole genome sequencing paper report about throughput, privacy, or deployment constraints?"
+        },
+        {
+          "id": "metrics_optional",
+          "task_type": "metric_query",
+          "query": "From the benchtop whole genome sequencing paper, extract explicitly reported sequencing quality or throughput metrics."
+        }
+      ]
+    },
+    {
+      "slug": "bmc_medgenomics_data_sharing_context_2022",
+      "queries": [
+        {
+          "id": "scoped_claim",
+          "task_type": "scoped_claim_query",
+          "query": "In the context matters genomic data sharing paper, what key findings are reported about public willingness and risk perceptions?"
+        },
+        {
+          "id": "unsupported_topic",
+          "task_type": "unsupported_topic_query",
+          "query": "In this genomic data sharing context paper, what long-read assembly N50 metrics are reported?"
+        },
+        {
+          "id": "limitations",
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations or unresolved concerns does the context matters genomic data sharing paper report for governance design?"
+        }
+      ]
+    }
+  ]
+}

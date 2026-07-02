@@ -1,0 +1,46 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+env/
+
+# Build outputs
+*.egg-info/
+build/
+dist/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Local GenoScribe runtime state
+genomics_assistant_data/
+src/genomics_assistant_data/
+library.json
+state.json
+outputs/
+
+# Generated indexes, caches, and reports
+*.faiss
+*.sqlite
+*.sqlite3
+*.db
+*.tmp
+*.log
+*.zip
+
+# Local research/workspace artifacts
+_old_genoscribe/
+NLP_RAG_Project_Notebook.ipynb
+compare_output.txt
+
+# OS files
+Thumbs.db
+.DS_Store

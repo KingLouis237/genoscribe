@@ -1,0 +1,32 @@
+#Why switch from Single Monolith file to Source file:
+1️ Auditability
+
+Modular code is testable.
+Testable code is enforceable.
+Enforceable code is audit-grade.
+
+Monoliths are not audit-grade.
+
+2️ Research Credibility
+
+If you ever publish:
+
+Reviewers expect modular design.
+They expect reproducibility.
+They expect separation of concerns.
+
+3 Future Scalability
+
+If you ever:
+
+Add embeddings
+
+Add web UI
+
+Add local server mode
+
+Add table objects
+
+Add validation enforcement
+
+Monolith becomes technical debt.

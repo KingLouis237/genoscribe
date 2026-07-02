@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use GenoScribe in research or technical work, please cite the repository."
+title: "GenoScribe: an evidence-first genomics paper review workbench"
+version: "0.1.0"
+date-released: "2026-07-01"
+authors:
+  - name: "GenoScribe contributors"
+abstract: "GenoScribe is a local evidence-review workbench for genomics papers and technical documents, focused on provenance-preserving retrieval, structured evidence assembly, and audit-first synthesis."
+keywords:
+  - genomics
+  - evidence review
+  - retrieval
+  - scientific literature
+  - provenance
+license: "MIT"

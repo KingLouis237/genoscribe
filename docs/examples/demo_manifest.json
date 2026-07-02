@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "documents": [
+    {
+      "slug": "genoscribe_scout_demo",
+      "title": "GenoScribe-Scout: A Synthetic Genomics Methods Benchmark",
+      "filename": "genoscribe_demo_paper.md",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper"],
+      "expected_doc_type": "paper",
+      "scope_aliases": [
+        "genoscribe scout demo paper",
+        "synthetic genomics methods benchmark",
+        "genoscribe-scout benchmark paper"
+      ],
+      "notes": "Synthetic public demo document with no real patient, clinical, or copyrighted paper content."
+    }
+  ]
+}

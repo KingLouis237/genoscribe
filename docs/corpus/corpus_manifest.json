@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "documents": [
+    {
+      "slug": "dyna_seed",
+      "title": "DYNA disease-specific language model paper",
+      "filename": "DYNA_2026-03-09_18-53-20.pdf",
+      "buckets": ["core_benchmark", "mode_specific"],
+      "modes": ["paper", "variant"],
+      "notes": "Seed benchmark document used in early retrieval tuning."
+    },
+    {
+      "slug": "shine_seed",
+      "title": "SHINE protein language model paper",
+      "filename": "SHINE_2026-03-09_18-53-39.pdf",
+      "buckets": ["core_benchmark", "mode_specific"],
+      "modes": ["paper", "assembly"],
+      "notes": "Primary assembly-mode benchmark in current corpus."
+    },
+    {
+      "slug": "gene_pathogenicity_benchmark_seed",
+      "title": "Gene Pathogenicity Prediction using Genomic Foundation Models",
+      "filename": "Gene-Pathogenicity-Prediction-using-Genomic-Foundation-Models_2026-03-09_18-50-46.pdf",
+      "buckets": ["core_benchmark", "mode_specific"],
+      "modes": ["paper", "variant"],
+      "scope_aliases": [
+        "gene pathogenicity benchmark paper",
+        "benchmark paper nucleotide transformer hyenadna genalm",
+        "benchmark paper busco genome assemblies",
+        "benchmark scope compute constraints model coverage paper"
+      ]
+    },
+    {
+      "slug": "frazer_eve_seed",
+      "title": "Frazer et al. EVE",
+      "filename": "Frazer_et_al_EVE_2026-03-09_18-50-42.pdf",
+      "buckets": ["core_benchmark", "generalization"],
+      "modes": ["paper", "variant"]
+    },
+    {
+      "slug": "alphamissense_seed",
+      "title": "AlphaMissense Science paper",
+      "filename": "science.adg7492_2026-03-09_18-53-53.pdf",
+      "buckets": ["generalization", "mode_specific"],
+      "modes": ["paper", "variant"]
+    },
+    {
+      "slug": "varipred_seed",
+      "title": "Varipred",
+      "filename": "Varipred_2026-03-09_18-53-16.pdf",
+      "buckets": ["generalization", "mode_specific"],
+      "modes": ["paper", "variant"]
+    },
+    {
+      "slug": "varcopp_seed",
+      "title": "VarCoPP",
+      "filename": "Varcopp_Nassim_2026-03-09_18-53-41.pdf",
+      "buckets": ["generalization", "mode_specific", "stress_test"],
+      "modes": ["paper", "variant"],
+      "notes": "Figure-heavy variant-combination paper used for metric extraction stress."
+    },
+    {
+      "slug": "papadimitriou_seed",
+      "title": "Predicting disease-causing variant combinations",
+      "filename": "papadimitriou-et-al-2019-predicting-disease-causing-variant-combinations_1__2026-03-09_18-53-49.pdf",
+      "buckets": ["generalization", "mode_specific", "stress_test"],
+      "modes": ["paper", "variant"]
+    },
+    {
+      "slug": "king_seed",
+      "title": "King et al. discordance paper",
+      "filename": "King_et_al_Discordance_2026-03-09_18-50-38.pdf",
+      "buckets": ["generalization", "mode_specific"],
+      "modes": ["paper", "variant"]
+    },
+    {
+      "slug": "marsh_seed",
+      "title": "Marsh et al. pathogenicity predictors",
+      "filename": "Marsh_et_al_Pred_variants_2026-03-09_18-50-41.pdf",
+      "buckets": ["generalization", "mode_specific"],
+      "modes": ["paper", "variant"]
+    },
+    {
+      "slug": "avsec_seed",
+      "title": "Avsec et al. long-range gene expression",
+      "filename": "Avsec_et_al_longrange_2026-03-09_18-49-46.pdf",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper"]
+    },
+    {
+      "slug": "evo_structure_seed",
+      "title": "Evolutionary-scale protein structure language model",
+      "filename": "Evolutionary-scale_prediction_of_atomic_level_protein_structure_with_a_language_model_2026-03-09_18-53-12.pdf",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper", "variant"]
+    },
+    {
+      "slug": "brandes_seed",
+      "title": "Brandes et al.",
+      "filename": "Brandes_et_al_2026-03-09_18-50-48.pdf",
+      "buckets": ["stress_test"],
+      "modes": ["paper"],
+      "notes": "Historically low-yield ingestion file used as parser stress input."
+    },
+    {
+      "slug": "genome_medicine_xcnv_2021",
+      "title": "Genome Medicine DOI 10.1186/s13073-021-00945-4",
+      "filename": "GenomeMedicine_XCNV_2021_s13073-021-00945-4.pdf",
+      "source_url": "https://genomemedicine.biomedcentral.com/counter/pdf/10.1186/s13073-021-00945-4.pdf",
+      "buckets": ["generalization", "mode_specific", "anti_overfitting"],
+      "modes": ["paper", "variant"],
+      "notes": "Non-DYNA clinical genomics style with cohort and CNV framing."
+    },
+    {
+      "slug": "genome_medicine_clingen_vci_2021",
+      "title": "ClinGen Variant Curation Interface DOI 10.1186/s13073-021-01004-8",
+      "filename": "ClinGen_VCI_2021_s13073-021-01004-8.pdf",
+      "source_url": "https://genomemedicine.biomedcentral.com/counter/pdf/10.1186/s13073-021-01004-8.pdf",
+      "buckets": ["generalization", "mode_specific", "anti_overfitting"],
+      "modes": ["paper", "variant"],
+      "notes": "Guideline-style curation paper for text-heavy evidence extraction."
+    },
+    {
+      "slug": "bmc_genomics_assembly_quality_2022",
+      "title": "BMC Genomics DOI 10.1186/s12864-022-08628-z",
+      "filename": "BMCGenomics_AssemblyQuality_2022_s12864-022-08628-z.pdf",
+      "source_url": "https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-022-08628-z.pdf",
+      "buckets": ["generalization", "mode_specific", "anti_overfitting"],
+      "modes": ["paper", "assembly"],
+      "notes": "Assembly quality and BUSCO-focused reporting style."
+    },
+    {
+      "slug": "bmc_genomics_2020_s12864_020_6568_2",
+      "title": "BMC Genomics DOI 10.1186/s12864-020-6568-2",
+      "filename": "BMCGenomics_2020_s12864-020-6568-2.pdf",
+      "source_url": "https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-020-6568-2.pdf",
+      "buckets": ["generalization", "mode_specific"],
+      "modes": ["paper", "assembly"],
+      "notes": "Second non-DYNA assembly-style source to avoid SHINE-only heuristics."
+    },
+    {
+      "slug": "bmc_genomdata_2023_s12863_023_01123_8",
+      "title": "BMC Genomic Data DOI 10.1186/s12863-023-01123-8",
+      "filename": "BMCGenomicData_2023_s12863-023-01123-8.pdf",
+      "source_url": "https://bmcgenomdata.biomedcentral.com/counter/pdf/10.1186/s12863-023-01123-8.pdf",
+      "buckets": ["generalization", "mode_specific", "stress_test"],
+      "modes": ["paper", "assembly"],
+      "notes": "Mixed formatting and data-heavy sections for ingestion stress."
+    },
+    {
+      "slug": "plos_pgen_1011540",
+      "title": "PLOS Genetics DOI 10.1371/journal.pgen.1011540",
+      "filename": "PLOSGenetics_10.1371_journal.pgen.1011540.pdf",
+      "source_url": "https://journals.plos.org/plosgenetics/article/file?id=10.1371/journal.pgen.1011540&type=printable",
+      "buckets": ["generalization", "anti_overfitting", "mode_specific"],
+      "modes": ["paper", "variant"],
+      "scope_aliases": [
+        "this plos paper"
+      ],
+      "notes": "Open-access non-DYNA variant-centric paper with a different publisher layout."
+    },
+    {
+      "slug": "rna_seq_best_practices_2016",
+      "title": "A survey of best practices for RNA-seq data analysis",
+      "filename": "GenomeBiology_RNAseq_BestPractices_2016_s13059-016-0881-8.pdf",
+      "source_url": "https://genomebiology.biomedcentral.com/counter/pdf/10.1186/s13059-016-0881-8.pdf",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper"],
+      "scope_aliases": [
+        "rna-seq best practices paper",
+        "a survey of best practices for rna-seq data analysis",
+        "genome biology rna-seq best practices"
+      ],
+      "expected_doc_type": "paper",
+      "notes": "Text-heavy best-practices review used as a flagship paper-mode narrative probe."
+    },
+    {
+      "slug": "gene_prediction_benchmark_2020",
+      "title": "Ab initio gene prediction methods in diverse eukaryotic organisms: a benchmark study",
+      "filename": "BMCGenomics_GenePrediction_Benchmark_2020_s12864-020-6707-9.pdf",
+      "source_url": "https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-020-6707-9.pdf",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper", "assembly"],
+      "scope_aliases": [
+        "ab initio gene prediction benchmark paper",
+        "gene prediction benchmark paper",
+        "bmc genomics gene prediction benchmark"
+      ],
+      "expected_doc_type": "assembly",
+      "notes": "Methods/benchmark paper outside variant pathogenicity for transfer probing; treated as mixed-mode due assembly-heavy language."
+    },
+    {
+      "slug": "genomic_consortia_data_access_2024",
+      "title": "Data access arrangements in genomic research consortia",
+      "filename": "ScientificReports_GenomicConsortia_DataAccess_2024_s41598-024-72653-z.pdf",
+      "source_url": "https://www.nature.com/articles/s41598-024-72653-z.pdf",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper"],
+      "scope_aliases": [
+        "data access arrangements in genomic research consortia paper",
+        "genomic consortia data access paper",
+        "scientific reports genomic consortia data access"
+      ],
+      "expected_doc_type": "paper",
+      "notes": "Broad consortium-style genomics governance paper with narrative claims and limitations."
+    },
+    {
+      "slug": "npj_genomicmed_data_sharing_2017",
+      "title": "A community effort to protect genomic data sharing, collaboration and outsourcing",
+      "filename": "npjGenomicMedicine_DataSharing_2017_s41525-017-0036-1.pdf",
+      "source_url": "https://www.nature.com/articles/s41525-017-0036-1.pdf",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper"],
+      "scope_aliases": [
+        "community effort protect genomic data sharing paper",
+        "npj genomic medicine data sharing collaboration outsourcing",
+        "genomic data sharing collaboration outsourcing perspective",
+        "genomic data sharing collaboration and outsourcing paper"
+      ],
+      "expected_doc_type": "paper",
+      "notes": "Text-heavy perspective/consensus-style paper for flagship paper-mode claim and limitation probing."
+    },
+    {
+      "slug": "bmc_genomics_benchtop_wgs_2025",
+      "title": "Flexible, production-scale, human whole genome sequencing on a benchtop sequencer",
+      "filename": "BMCGenomics_BenchtopWGS_2025_s12864-025-11741-4.pdf",
+      "source_url": "https://bmcgenomics.biomedcentral.com/counter/pdf/10.1186/s12864-025-11741-4.pdf",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper"],
+      "scope_aliases": [
+        "benchtop whole genome sequencing paper",
+        "production-scale human whole genome sequencing benchtop sequencer",
+        "bmc genomics benchtop wgs 2025"
+      ],
+      "expected_doc_type": "paper",
+      "notes": "Methods/benchmark-style sequencing paper outside variant pathogenicity with explicit QC metrics and trade-off claims."
+    },
+    {
+      "slug": "bmc_medgenomics_data_sharing_context_2022",
+      "title": "Context matters in genomic data sharing: a qualitative investigation into responses from the Australian public",
+      "filename": "BMCMedGenomics_DataSharingContext_2022_s12920-023-01452-8.pdf",
+      "source_url": "https://bmcmedgenomics.biomedcentral.com/counter/pdf/10.1186/s12920-023-01452-8.pdf",
+      "buckets": ["generalization", "anti_overfitting"],
+      "modes": ["paper"],
+      "scope_aliases": [
+        "context matters genomic data sharing paper",
+        "australian public genomic data sharing qualitative investigation",
+        "bmc medical genomics genomic data sharing context"
+      ],
+      "expected_doc_type": "paper",
+      "notes": "Broad genomics governance/policy-style paper with narrative claims, caveats, and mixed quantitative reporting."
+    }
+  ]
+}

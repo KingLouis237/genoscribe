@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "mode": "paper",
+  "papers": [
+    {
+      "slug": "dyna_seed",
+      "expected_bucket": "core_benchmark",
+      "notes": "Flagship regression paper for DYNA-scoped trust checks.",
+      "tasks": [
+        {
+          "task_type": "scoped_document_query",
+          "query": "In the DYNA paper, summarize the key pathogenicity findings and evidence."
+        },
+        {
+          "task_type": "metric_extraction_query",
+          "query": "From the DYNA paper, report PLLR p-values, KL divergence values, and AUPR metrics.",
+          "expected_auto": {
+            "metric_min": 3
+          }
+        },
+        {
+          "task_type": "supported_claim_query",
+          "query": "Does the DYNA paper provide evidence that DYNA improves pathogenicity discrimination versus baselines?"
+        },
+        {
+          "task_type": "unsupported_topic_query",
+          "query": "In the DYNA paper, what are the CRISPR guide RNA off-target rates?"
+        },
+        {
+          "task_type": "limitation_conflict_query",
+          "query": "In the DYNA paper, what limitations, caveats, or conflicting results are explicitly described?"
+        }
+      ]
+    },
+    {
+      "slug": "gene_pathogenicity_benchmark_seed",
+      "expected_bucket": "core_benchmark",
+      "notes": "Regression anchor for foundation-model benchmark synthesis.",
+      "tasks": [
+        {
+          "task_type": "scoped_document_query",
+          "query": "In the Gene Pathogenicity Prediction using Genomic Foundation Models paper, summarize the model-comparison results."
+        },
+        {
+          "task_type": "metric_extraction_query",
+          "query": "From the Gene Pathogenicity benchmark paper, extract accuracy, precision, recall, and AUC-style metrics for NT, GenaLM, and HyenaDNA.",
+          "expected_auto": {
+            "metric_min": 2
+          }
+        },
+        {
+          "task_type": "supported_claim_query",
+          "query": "Does this benchmark paper support the claim that Nucleotide Transformer outperforms HyenaDNA and GenaLM in this evaluation?"
+        },
+        {
+          "task_type": "unsupported_topic_query",
+          "query": "In this benchmark paper, what are the BUSCO completeness percentages for genome assemblies?"
+        },
+        {
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations are stated about compute constraints, model coverage, or benchmark scope in this paper?"
+        }
+      ]
+    },
+    {
+      "slug": "plos_pgen_1011540",
+      "expected_bucket": "generalization",
+      "notes": "Non-DYNA publisher layout to test generalization of paper mode.",
+      "tasks": [
+        {
+          "task_type": "scoped_document_query",
+          "query": "In PLOS Genetics DOI 10.1371/journal.pgen.1011540, summarize the main evidence claims."
+        },
+        {
+          "task_type": "metric_extraction_query",
+          "query": "From PLOS Genetics 10.1371/journal.pgen.1011540, extract reported metrics such as AUC, precision, recall, odds ratio, or p-values.",
+          "expected_auto": {
+            "metric_min": 1
+          }
+        },
+        {
+          "task_type": "supported_claim_query",
+          "query": "What supported claim does this PLOS Genetics paper make about genomic evidence quality?"
+        },
+        {
+          "task_type": "unsupported_topic_query",
+          "query": "In this PLOS paper, what are the QUAST and KAT assembly QC scores?"
+        },
+        {
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations, uncertainty notes, or conflicting findings are reported in this PLOS paper?"
+        }
+      ]
+    },
+    {
+      "slug": "genome_medicine_clingen_vci_2021",
+      "expected_bucket": "generalization",
+      "notes": "Narrative/implementation style clinical genomics curation paper.",
+      "tasks": [
+        {
+          "task_type": "scoped_document_query",
+          "query": "In the ClinGen VCI 2021 paper, summarize the workflow and evidence curation goals."
+        },
+        {
+          "task_type": "metric_extraction_query",
+          "query": "From the ClinGen VCI 2021 paper, extract structured counts or performance/adoption metrics that are explicitly reported.",
+          "expected_auto": {
+            "metric_min": 1
+          }
+        },
+        {
+          "task_type": "supported_claim_query",
+          "query": "What evidence in the ClinGen VCI paper supports improved consistency or scalability of variant curation?"
+        },
+        {
+          "task_type": "unsupported_topic_query",
+          "query": "In the ClinGen VCI paper, what are the RMSD benchmarks for protein structure prediction?"
+        },
+        {
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations, implementation challenges, or unresolved issues are discussed in the ClinGen VCI paper?"
+        }
+      ]
+    },
+    {
+      "slug": "papadimitriou_seed",
+      "expected_bucket": "stress_test",
+      "notes": "Figure-heavy stress paper for noisy caption handling and unsupported-topic behavior.",
+      "tasks": [
+        {
+          "task_type": "scoped_document_query",
+          "query": "In the papadimitriou variant-combination paper, summarize the main VarCoPP evidence findings."
+        },
+        {
+          "task_type": "metric_extraction_query",
+          "query": "From the papadimitriou paper, extract VarCoPP confidence-zone thresholds and other reported performance metrics.",
+          "expected_auto": {
+            "metric_min": 2
+          }
+        },
+        {
+          "task_type": "supported_claim_query",
+          "query": "What evidence supports prediction of disease-causing variant combinations in the papadimitriou paper?"
+        },
+        {
+          "task_type": "unsupported_topic_query",
+          "query": "In the papadimitriou paper, what single-cell RNA velocity benchmarks are reported?"
+        },
+        {
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations or uncertainty are reported for VarCoPP predictions in this paper?"
+        }
+      ]
+    }
+  ]
+}

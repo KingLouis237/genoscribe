@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "mode": "paper",
+  "min_papers": 1,
+  "papers": [
+    {
+      "slug": "genoscribe_scout_demo",
+      "expected_bucket": "generalization",
+      "notes": "Synthetic public demo matrix for clean checkouts.",
+      "tasks": [
+        {
+          "task_type": "scoped_document_query",
+          "query": "In the GenoScribe-Scout demo paper, summarize the synthetic benchmark setup."
+        },
+        {
+          "task_type": "metric_extraction_query",
+          "query": "From the GenoScribe-Scout benchmark paper, extract AUROC, AUPRC, accuracy, precision, recall, and F1 metrics.",
+          "expected_auto": {
+            "metric_min": 2
+          }
+        },
+        {
+          "task_type": "supported_claim_query",
+          "query": "Does the GenoScribe-Scout paper support the claim that GenoScribe-Scout performs best on the synthetic benchmark?"
+        },
+        {
+          "task_type": "unsupported_topic_query",
+          "query": "In the GenoScribe-Scout paper, what are the validated clinical pathogenicity classifications for BRCA1 patients?"
+        },
+        {
+          "task_type": "limitation_conflict_query",
+          "query": "What limitations or non-clinical caveats are stated in the GenoScribe-Scout demo paper?"
+        }
+      ]
+    }
+  ]
+}
