@@ -237,6 +237,20 @@ src/genoscribe/
 - Keep paper mode as the flagship workflow.
 - Keep variant mode explicitly experimental and research-only.
 
+## Current limits
+
+GenoScribe is useful, but it is not magic.
+
+Known limits include:
+
+- metric extraction is still brittle for narrative-only results, figure-only values, and unusual table layouts;
+- target-document inference works best when titles, aliases, or explicit context are available;
+- the full curated benchmark depends on local corpus sync and is not bundled with the public repo;
+- variant mode is experimental and research-only;
+- audit states reduce overclaiming, but users still need to inspect cited passages.
+
+The project deliberately prefers `Unknown`, `partially_supported`, or `insufficient_evidence` over confident unsupported claims.
+
 ## License and citation
 
 GenoScribe is released under the MIT License. See [LICENSE](LICENSE).
