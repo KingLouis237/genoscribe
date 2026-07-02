@@ -1,5 +1,13 @@
 # GenoScribe
 
+GenoScribe started from a simple frustration: scientific papers are easy to summarize badly, but hard to review carefully.
+
+I built this as a local evidence-review workbench for genomics papers and technical documents. The goal is not to make a chatbot that sounds confident. The goal is to make the evidence visible: what was retrieved, where it came from, what claim it supports, what is missing, and when the system should say `insufficient_evidence` instead of pretending.
+
+Right now, the strongest workflow is paper mode. It focuses on scoped document retrieval, provenance-bearing evidence bundles, metric surfacing, structured synthesis, audit states, and reproducible validation reports.
+
+This is a research/developer MVP. It is not a clinical tool, not a diagnostic assistant, and not a substitute for manual scientific review.
+
 GenoScribe is a local, evidence-first review workbench for genomics papers and technical documents.
 
 It is built to help scientists inspect evidence, not accept fluent summaries. The system retrieves passages, preserves provenance, surfaces structured evidence, and assigns explicit audit status before rendering user-facing output.
