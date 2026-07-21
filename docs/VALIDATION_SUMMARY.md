@@ -1,0 +1,67 @@
+# Validation Summary
+
+This page separates public clean-checkout validation from local curated-corpus validation.
+
+## Public clean-checkout validation
+
+The public repository is designed to work without real PDFs, private corpus files, generated vector indexes, or cached reports.
+
+Expected release-check commands:
+
+```bash
+uv sync
+uv run python -m pytest
+uv run python scripts/demo_build_sample_corpus.py
+uv run python scripts/paper_validation_harness.py --matrix docs/examples/demo_validation_matrix.json --manifest docs/examples/demo_manifest.json --top-k 4
+```
+
+Current public-release validation target:
+
+- `uv sync` works from a clean export.
+- Test suite passes: **107 passed / 1 skipped**.
+- Synthetic demo corpus builds from `docs/examples/demo_paper.md`.
+- Demo validation passes: **5/5**.
+
+The demo corpus is synthetic and intentionally non-clinical. It exists to prove that the public repo can run end-to-end without distributing copyrighted papers or local indexes.
+
+## Local curated-corpus validation
+
+The stronger paper-mode validation uses a local curated corpus that is not committed to Git.
+
+Current local benchmark checkpoint:
+
+- Fixed paper-mode benchmark: **21/25 = 84%**.
+- The benchmark requires locally synced papers and generated library/index files.
+- Those files are intentionally ignored by Git.
+
+Typical local commands:
+
+```bash
+uv run python scripts/corpus_sync.py --download-missing --ingest-missing
+uv run python scripts/paper_validation_harness.py --top-k 4
+```
+
+## Benchmark progression
+
+The fixed paper-mode benchmark improved through narrow, validation-driven sprints:
+
+```text
+4/25 -> 8/25 -> 10/25 -> 14/25 -> 17/25 -> 18/25 -> 19/25 -> 20/25 -> 21/25
+```
+
+The main improvements came from:
+
+- conservative target-document inference
+- scoped document anchoring
+- off-target evidence audit labeling
+- figure/caption filtering and demotion
+- metric surfacing for paper-mode queries
+- table-row metric extraction
+- structured synthesis before prose rendering
+- provenance-aware audit status handling
+
+## What the scores mean
+
+The current validation results show that GenoScribe has a meaningful, testable paper-mode workflow. They do not prove clinical usefulness, broad corpus robustness, or product readiness.
+
+Known weak areas remain documented in `docs/KNOWN_LIMITATIONS.md` and monitored through `docs/VALIDATION_MONITORING_PROTOCOL_2026-05.md`.

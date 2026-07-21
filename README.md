@@ -61,6 +61,18 @@ Local curated-corpus validation:
 
 The current state-of-project assessment is in [docs/GENOSCRIBE_STATE_OF_PROJECT_2026-05.md](docs/GENOSCRIBE_STATE_OF_PROJECT_2026-05.md).
 
+## Development history
+
+GenoScribe was developed over multiple validation-driven sprints. The public repository starts from a clean release snapshot because the original working repo contained local PDFs, generated indexes, caches, reports, notebooks, and experimental artifacts that should not be published.
+
+Public clean-checkout validation currently covers install, tests, synthetic demo corpus build, and demo validation. Full curated-corpus validation remains local because the benchmark requires synced papers that are not committed to Git.
+
+- [Project history](docs/PROJECT_HISTORY.md)
+- [Validation summary](docs/VALIDATION_SUMMARY.md)
+- [Development milestones](docs/DEVELOPMENT_MILESTONES.md)
+- [Engineering log](research/ENGINEERING_LOG.md)
+- [Known limitations](docs/KNOWN_LIMITATIONS.md)
+
 ## Core pipeline
 
 ```text
