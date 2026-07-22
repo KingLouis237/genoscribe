@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "benchmark_name": "oa_benchmark_v1",
+  "description": "Template for a future public open-access paper-mode benchmark. Gold answers must be human verified; do not generate ground truth with Codex or another model.",
+  "gold_answer_policy": "manual_human_verified_only",
+  "items": [
+    {
+      "id": "TODO_unique_item_id",
+      "question": "TODO: write a paper-mode benchmark question.",
+      "source_doc": "TODO: open-access source title.",
+      "source_doc_slug": "TODO_source_doc_slug",
+      "gold_answer": "TODO: human-verified answer only; do not generate with a model.",
+      "expected_audit_state": "TODO_supported_or_partially_supported_or_insufficient_evidence_or_conflicting_evidence_or_off_target_evidence",
+      "supporting_section_or_page": "TODO: section, page, table, or figure location.",
+      "supporting_quote_or_paraphrase": "TODO: short human-verified support quote or paraphrase.",
+      "unsupported_reason": "TODO: explain if the requested claim/topic should be unsupported; otherwise leave empty after review.",
+      "task_type": "TODO_scoped_document_query_or_metric_extraction_query_or_supported_claim_query_or_unsupported_topic_query_or_limitation_conflict_query",
+      "notes": "TODO: reviewer notes, caveats, or benchmark-design rationale."
+    }
+  ]
+}

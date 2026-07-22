@@ -193,6 +193,13 @@ src/genomics_assistant_data/outputs/reports/
 
 These reports are ignored by Git unless deliberately curated.
 
+
+## Public OA benchmark scaffold
+
+A public open-access paper-mode benchmark scaffold is available in [docs/benchmarks/](docs/benchmarks/). This is separate from the synthetic demo and the local curated-corpus benchmark.
+
+Gold answers for this benchmark must be manually verified from open-access source documents. The template intentionally does not contain Codex-generated ground truth.
+
 ## Evidence review GUI
 
 Launch the local Streamlit inspection app:
