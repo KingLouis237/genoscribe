@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "benchmark_name": "oa_benchmark_v1",
+  "description": "Public open-access paper-mode benchmark draft file. Items are not scoring-ready until verification_status is human_verified.",
+  "gold_answer_policy": "manual_human_verified_only",
+  "items": []
+}

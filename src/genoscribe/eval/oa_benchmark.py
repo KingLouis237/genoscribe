@@ -10,12 +10,18 @@ REQUIRED_ITEM_FIELDS = (
     "question",
     "source_doc",
     "source_doc_slug",
+    "benchmark_track",
     "gold_answer",
     "expected_audit_state",
     "supporting_section_or_page",
     "supporting_quote_or_paraphrase",
+    "candidate_supporting_section",
+    "candidate_supporting_quote_or_paraphrase",
     "unsupported_reason",
     "task_type",
+    "verification_status",
+    "human_verified_by",
+    "human_verified_date",
     "notes",
 )
 
@@ -27,12 +33,22 @@ ALLOWED_AUDIT_STATES = {
     "off_target_evidence",
 }
 
+ALLOWED_BENCHMARK_TRACKS = {
+    "core_paper_mode_general",
+    "assembly_qc_specialized",
+}
+
 ALLOWED_TASK_TYPES = {
     "scoped_document_query",
     "metric_extraction_query",
     "supported_claim_query",
     "unsupported_topic_query",
     "limitation_conflict_query",
+}
+
+ALLOWED_VERIFICATION_STATUSES = {
+    "needs_human_review",
+    "human_verified",
 }
 
 
@@ -42,12 +58,18 @@ class OABenchmarkItem:
     question: str
     source_doc: str
     source_doc_slug: str
+    benchmark_track: str
     gold_answer: str
     expected_audit_state: str
     supporting_section_or_page: str
     supporting_quote_or_paraphrase: str
+    candidate_supporting_section: str
+    candidate_supporting_quote_or_paraphrase: str
     unsupported_reason: str
     task_type: str
+    verification_status: str
+    human_verified_by: str
+    human_verified_date: str
     notes: str
 
 
@@ -68,8 +90,17 @@ def _is_todo(value: str) -> bool:
 def _validate_enum_or_todo(*, value: str, allowed: Iterable[str], field: str, item_id: str) -> None:
     if _is_todo(value):
         return
-    if value not in set(allowed):
+    allowed_values = set(allowed)
+    if value not in allowed_values:
         raise ValueError(f"Invalid {field} for {item_id}: {value}")
+
+
+def _validate_genomeqc_solorina_track(item: OABenchmarkItem) -> None:
+    identity = f"{item.source_doc_slug} {item.source_doc}".lower()
+    if ("genomeqc" in identity or "solorina" in identity) and item.benchmark_track != "assembly_qc_specialized":
+        raise ValueError(
+            f"{item.id} references GenomeQC/Solorina content and must use benchmark_track='assembly_qc_specialized'."
+        )
 
 
 def load_oa_benchmark(path: Path) -> OABenchmark:
@@ -100,13 +131,27 @@ def load_oa_benchmark(path: Path) -> OABenchmark:
             item_id=item_id,
         )
         _validate_enum_or_todo(
+            value=values["benchmark_track"],
+            allowed=ALLOWED_BENCHMARK_TRACKS,
+            field="benchmark_track",
+            item_id=item_id,
+        )
+        _validate_enum_or_todo(
             value=values["task_type"],
             allowed=ALLOWED_TASK_TYPES,
             field="task_type",
             item_id=item_id,
         )
+        _validate_enum_or_todo(
+            value=values["verification_status"],
+            allowed=ALLOWED_VERIFICATION_STATUSES,
+            field="verification_status",
+            item_id=item_id,
+        )
 
-        items.append(OABenchmarkItem(**values))
+        item = OABenchmarkItem(**values)
+        _validate_genomeqc_solorina_track(item)
+        items.append(item)
 
     return OABenchmark(
         schema_version=int(payload.get("schema_version", 1)),
@@ -115,3 +160,23 @@ def load_oa_benchmark(path: Path) -> OABenchmark:
         gold_answer_policy=str(payload.get("gold_answer_policy", "")).strip(),
         items=items,
     )
+
+
+def validate_scoring_ready(benchmark: OABenchmark) -> None:
+    """Reject draft benchmark items before any future scorer treats them as gold."""
+    not_verified = [item.id for item in benchmark.items if item.verification_status != "human_verified"]
+    if not_verified:
+        raise ValueError(f"OA benchmark contains non-human-verified items: {not_verified}")
+
+    incomplete = [
+        item.id
+        for item in benchmark.items
+        if _is_todo(item.gold_answer)
+        or _is_todo(item.expected_audit_state)
+        or _is_todo(item.supporting_section_or_page)
+        or _is_todo(item.supporting_quote_or_paraphrase)
+        or not item.human_verified_by.strip()
+        or not item.human_verified_date.strip()
+    ]
+    if incomplete:
+        raise ValueError(f"OA benchmark contains incomplete human-verified items: {incomplete}")
