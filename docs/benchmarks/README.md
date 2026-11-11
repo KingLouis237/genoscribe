@@ -61,7 +61,9 @@ The validator refuses scoring-ready use when any item is not `human_verified`.
 
 Core benchmark v0 should focus on general paper-mode genomics and bioinformatics papers.
 
-GenomeQC, Solorina, or similar assembly-QC-specific papers must not be placed in the core paper-mode track. If they are used later, they must be assigned to the clearly separate `assembly_qc_specialized` track.
+Track assignment is explicit metadata, not a classification inferred from a paper title, author, slug, DOI, or benchmark-item identity. Use `core_paper_mode_general` for the general paper-mode benchmark and `assembly_qc_specialized` for the separate assembly-QC track.
+
+The loader validates that each declared track is allowed. Curators remain responsible for assigning the appropriate track in benchmark or manifest metadata.
 
 ## Current status
 

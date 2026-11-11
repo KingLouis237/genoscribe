@@ -2219,3 +2219,35 @@ Use explicit high-resolution UTC `updated_at` metadata for new saves, preserve `
 
 ### Guardrails
 - No retrieval, synthesis, audit, corpus, metric, demo corpus, or validation logic changed.
+
+## 2026-11-11 - Remove paper-specific OA benchmark track inference
+### Goal
+Keep public OA benchmark validation generic and entirely driven by declared benchmark or manifest metadata.
+
+### Problem / Context
+The OA benchmark loader and drafting script inspected source titles or slugs for two named papers and forced those identities into the assembly-QC track. This made evaluation behavior depend on individual documents and embedded an overfit policy in generic benchmark infrastructure.
+
+### Decision
+Retain `core_paper_mode_general` and `assembly_qc_specialized`, but validate only the declared `benchmark_track`. Do not infer track from titles, authors, slugs, DOIs, or item IDs.
+
+A generic manifest-to-item consistency check was not added because benchmark items currently carry no independent manifest document key or separately loaded manifest track. The drafting script propagates declared manifest metadata into generated items; joining by title or slug in the evaluator would recreate identity coupling.
+
+### Implementation
+- Removed document-name inspection from the OA benchmark loader.
+- Removed title/slug-based track inference from the OA drafting script.
+- Reused the evaluator allowed-track set in the drafting CLI and manifest loader.
+- Made `benchmark_track` strict: it must be one of the two allowed values and cannot remain `TODO`.
+- Replaced named-paper tests with synthetic tests for invalid, specialized, and unresolved declared tracks.
+- Clarified the metadata-only policy in the benchmark documentation.
+
+### Guardrails
+- No production retrieval, synthesis, audit, demo, or validation-matrix behavior changed.
+- No heuristic topic classifier was introduced.
+- Human-verification and scoring-readiness rules remain unchanged.
+
+### Validation
+- `uv run pytest tests/test_oa_benchmark.py`
+- `uv run python -m pytest`
+
+### Lesson
+Benchmark infrastructure should validate explicit policy metadata, not encode exceptions for individual evaluation documents.

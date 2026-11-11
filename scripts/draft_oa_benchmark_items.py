@@ -7,8 +7,11 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
 
+from genoscribe.eval.oa_benchmark import ALLOWED_BENCHMARK_TRACKS
+
 DEFAULT_BENCHMARK_PATH = Path("docs/benchmarks/oa_benchmark_v1.json")
 DEFAULT_MANIFEST_PATH = Path("docs/corpus/oa_benchmark_manifest.json")
+DEFAULT_BENCHMARK_TRACK = "core_paper_mode_general"
 TASK_TYPES = (
     "scoped_document_query",
     "metric_extraction_query",
@@ -22,7 +25,7 @@ TASK_TYPES = (
 class DraftPaper:
     slug: str
     title: str
-    benchmark_track: str = "core_paper_mode_general"
+    benchmark_track: str = DEFAULT_BENCHMARK_TRACK
     source_url: str = ""
 
 
@@ -31,13 +34,11 @@ def _slugify(value: str) -> str:
     return cleaned or "oa_paper"
 
 
-def _default_track_for(*, slug: str, title: str, requested_track: str | None = None) -> str:
-    identity = f"{slug} {title}".lower()
-    if "genomeqc" in identity or "solorina" in identity:
-        if requested_track and requested_track != "assembly_qc_specialized":
-            raise ValueError("GenomeQC/Solorina papers must use benchmark_track='assembly_qc_specialized'.")
-        return "assembly_qc_specialized"
-    return requested_track or "core_paper_mode_general"
+def _validate_declared_track(requested_track: str | None = None) -> str:
+    track = requested_track or DEFAULT_BENCHMARK_TRACK
+    if track not in ALLOWED_BENCHMARK_TRACKS:
+        raise ValueError(f"Invalid benchmark_track: {track}")
+    return track
 
 
 def _load_manifest_papers(path: Path) -> List[DraftPaper]:
@@ -52,9 +53,7 @@ def _load_manifest_papers(path: Path) -> List[DraftPaper]:
         title = str(row.get("title", "")).strip()
         if not slug or not title:
             continue
-        track = _default_track_for(
-            slug=slug,
-            title=title,
+        track = _validate_declared_track(
             requested_track=str(row.get("benchmark_track", "")).strip() or None,
         )
         papers.append(
@@ -155,7 +154,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--benchmark-track",
         default="core_paper_mode_general",
-        choices=("core_paper_mode_general", "assembly_qc_specialized"),
+        choices=tuple(sorted(ALLOWED_BENCHMARK_TRACKS)),
     )
     return parser
 
@@ -165,7 +164,7 @@ def main() -> int:
     papers: List[DraftPaper] = []
     if args.paper_title:
         slug = args.paper_slug.strip() or _slugify(args.paper_title)
-        track = _default_track_for(slug=slug, title=args.paper_title, requested_track=args.benchmark_track)
+        track = _validate_declared_track(args.benchmark_track)
         papers.append(
             DraftPaper(slug=slug, title=args.paper_title.strip(), benchmark_track=track, source_url=args.source_url)
         )
