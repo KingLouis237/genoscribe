@@ -46,11 +46,13 @@ def test_oa_benchmark_template_loads() -> None:
     assert benchmark.items[0].gold_answer.lower().startswith("todo")
 
 
-def test_oa_benchmark_v1_file_loads_empty_or_draft() -> None:
+def test_oa_benchmark_v1_file_is_empty_but_not_scoring_ready() -> None:
     benchmark = load_oa_benchmark(Path("docs/benchmarks/oa_benchmark_v1.json"))
 
     assert benchmark.benchmark_name == "oa_benchmark_v1"
-    assert all(item.verification_status in {"needs_human_review", "human_verified"} for item in benchmark.items)
+    assert benchmark.items == []
+    with pytest.raises(ValueError, match="no scoring items"):
+        validate_scoring_ready(benchmark)
 
 
 def test_oa_benchmark_template_contains_required_item_fields() -> None:

@@ -2251,3 +2251,16 @@ A generic manifest-to-item consistency check was not added because benchmark ite
 
 ### Lesson
 Benchmark infrastructure should validate explicit policy metadata, not encode exceptions for individual evaluation documents.
+
+## 2026-11-11 - Separate empty OA benchmark validity from scoring readiness
+### Decision
+An empty `oa_benchmark_v1.json` is a valid pre-annotation data file and must load successfully, but it is not a scoreable benchmark.
+
+### Implementation
+- Kept schema/loading behavior unchanged for `items: []`.
+- Made `validate_scoring_ready()` reject benchmarks with zero items before verification and completeness checks.
+- Retained rejection of non-human-verified and incomplete human-verified items.
+- Added regression coverage for the empty-but-not-scoreable contract.
+
+### Guardrails
+- No benchmark JSON, retrieval, synthesis, audit, demo, or validation-matrix behavior changed.

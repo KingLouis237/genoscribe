@@ -156,7 +156,10 @@ def load_oa_benchmark(path: Path) -> OABenchmark:
 
 
 def validate_scoring_ready(benchmark: OABenchmark) -> None:
-    """Reject draft benchmark items before any future scorer treats them as gold."""
+    """Reject empty, draft, or incomplete benchmarks before scoring."""
+    if not benchmark.items:
+        raise ValueError("OA benchmark contains no scoring items.")
+
     not_verified = [item.id for item in benchmark.items if item.verification_status != "human_verified"]
     if not_verified:
         raise ValueError(f"OA benchmark contains non-human-verified items: {not_verified}")
