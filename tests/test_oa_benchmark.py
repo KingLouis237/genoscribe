@@ -98,25 +98,37 @@ def test_invalid_verification_status_is_rejected(tmp_path: Path) -> None:
         load_oa_benchmark(path)
 
 
-def test_genomeqc_and_solorina_must_use_assembly_track(tmp_path: Path) -> None:
-    path = tmp_path / "bad_track.json"
+def test_invalid_benchmark_track_is_rejected(tmp_path: Path) -> None:
+    path = tmp_path / "invalid_track.json"
     path.write_text(
-        json.dumps(
-            {
-                "items": [
-                    _valid_item(
-                        id="genomeqc_bad_track",
-                        source_doc="GenomeQC assembly quality paper",
-                        source_doc_slug="genomeqc_quality",
-                        benchmark_track="core_paper_mode_general",
-                    )
-                ]
-            }
-        ),
+        json.dumps({"items": [_valid_item(benchmark_track="unregistered_specialized_track")]}),
         encoding="utf-8",
     )
 
-    with pytest.raises(ValueError, match="assembly_qc_specialized"):
+    with pytest.raises(ValueError, match="Invalid benchmark_track"):
+        load_oa_benchmark(path)
+
+
+def test_declared_specialized_track_loads_without_title_inference(tmp_path: Path) -> None:
+    path = tmp_path / "specialized_track.json"
+    path.write_text(
+        json.dumps({"items": [_valid_item(benchmark_track="assembly_qc_specialized")]}),
+        encoding="utf-8",
+    )
+
+    benchmark = load_oa_benchmark(path)
+
+    assert benchmark.items[0].benchmark_track == "assembly_qc_specialized"
+
+
+def test_todo_benchmark_track_is_rejected(tmp_path: Path) -> None:
+    path = tmp_path / "todo_track.json"
+    path.write_text(
+        json.dumps({"items": [_valid_item(benchmark_track="TODO: classify track")]}),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="Invalid benchmark_track"):
         load_oa_benchmark(path)
 
 

@@ -87,20 +87,15 @@ def _is_todo(value: str) -> bool:
     return not stripped or stripped.startswith("todo")
 
 
-def _validate_enum_or_todo(*, value: str, allowed: Iterable[str], field: str, item_id: str) -> None:
-    if _is_todo(value):
-        return
-    allowed_values = set(allowed)
-    if value not in allowed_values:
+def _validate_enum(*, value: str, allowed: Iterable[str], field: str, item_id: str) -> None:
+    if value not in set(allowed):
         raise ValueError(f"Invalid {field} for {item_id}: {value}")
 
 
-def _validate_genomeqc_solorina_track(item: OABenchmarkItem) -> None:
-    identity = f"{item.source_doc_slug} {item.source_doc}".lower()
-    if ("genomeqc" in identity or "solorina" in identity) and item.benchmark_track != "assembly_qc_specialized":
-        raise ValueError(
-            f"{item.id} references GenomeQC/Solorina content and must use benchmark_track='assembly_qc_specialized'."
-        )
+def _validate_enum_or_todo(*, value: str, allowed: Iterable[str], field: str, item_id: str) -> None:
+    if _is_todo(value):
+        return
+    _validate_enum(value=value, allowed=allowed, field=field, item_id=item_id)
 
 
 def load_oa_benchmark(path: Path) -> OABenchmark:
@@ -130,7 +125,7 @@ def load_oa_benchmark(path: Path) -> OABenchmark:
             field="expected_audit_state",
             item_id=item_id,
         )
-        _validate_enum_or_todo(
+        _validate_enum(
             value=values["benchmark_track"],
             allowed=ALLOWED_BENCHMARK_TRACKS,
             field="benchmark_track",
@@ -149,9 +144,7 @@ def load_oa_benchmark(path: Path) -> OABenchmark:
             item_id=item_id,
         )
 
-        item = OABenchmarkItem(**values)
-        _validate_genomeqc_solorina_track(item)
-        items.append(item)
+        items.append(OABenchmarkItem(**values))
 
     return OABenchmark(
         schema_version=int(payload.get("schema_version", 1)),
